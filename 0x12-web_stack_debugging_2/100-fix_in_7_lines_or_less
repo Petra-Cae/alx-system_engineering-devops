@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# fixes a web server so nginx runs as nginx user and listens on all active IPs on port 8080
+sed -i "s/#user www-data/user nginx" /etc/nginx.conf
+sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+chmod 644 /etc/nginx/nginx.conf
+pkill -f apache2
+sudo -u nginx service nginx restart
