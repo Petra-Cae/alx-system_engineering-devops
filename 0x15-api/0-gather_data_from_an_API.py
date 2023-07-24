@@ -26,4 +26,4 @@ if __name__ == '__main__':
           .format(name, tasksDone, allTasks))
 
     print('\n'.join(["\t " + task.get('title') for task in totalTodos.json()
-          if task.get('userId') == int(userId) and task.get('tasksDone')]))
+          if task.get('userId') == int(userId) and task.get('completed')]))
