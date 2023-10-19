@@ -15,6 +15,6 @@ sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 # configure Nginx so that it listens on port 80 with a HTTP response that contains
 #+ a custom header X-Served_By and the hostname of the running server
-    add_header X-Served-By $HOSTNAME >> /etc/nginx/sites-available/default
+sudo echo "add_header X-Served-By $HOSTNAME" >> /etc/nginx/sites-available/default
 
 sudo service nginx restart
