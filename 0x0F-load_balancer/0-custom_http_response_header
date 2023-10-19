@@ -7,14 +7,14 @@ sudo apt install nginx -y
 # Returns a page saying "Hello World" when queried at the root with a curl GET request
 sudo mkdir -p /var/www/html
 sudo touch /var/www/html/index.html
-sudo echo "Hello World" > /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 
 # has a custom 404 page saying "Ceci n'est pas une page"
 sudo touch /var/www/html/404.html
-sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
 
 # configure Nginx so that it listens on port 80 with a HTTP response that contains
 #+ a custom header X-Served_By and the hostname of the running server
-sudo echo "add_header X-Served-By $HOSTNAME" >> /etc/nginx/sites-available/default
+echo "add_header X-Served-By $HOSTNAME" | sudo tee  -a /etc/nginx/sites-available/default > /dev/null
 
 sudo service nginx restart
